@@ -1,0 +1,87 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Название</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">удаление</th>
+                        <th scope="col">редактирование</th>
+                        <th scope="col">удаление</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">Название</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">удаление</th>
+                        <th scope="col">редактирование</th>
+                        <th scope="col">удаление</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for object in objects %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'admin_staff:products' object.id %}" style="color: dodgerblue">
+                                    {{ object.name }}
+                                </a>
+                            </td>
+                            <td>{{ object.description }}</td>
+                            <td>
+                                {% if object.is_active %}
+                                    <i class="fa fa-check-circle"></i>
+                                {% else %}
+                                    <i class="fa fa-times-circle"></i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a type="button" href="{% url 'admin_staff:category_update' object.id %}"
+                                        class="btn btn-info" style="width: 140px">
+                                    Редактировать
+                                </a>
+                            </td>
+                            <td>
+                                {% if object.is_active %}
+                                    <form action="{% url 'admin_staff:category_delete' pk=object.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-danger" style="width: 130px" value="Удалить"></p>
+                                    </form>
+                                {% else %}
+                                    <form action="{% url 'admin_staff:category_delete' pk=object.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-primary" style="width: 130px" value="Восстановить"></p>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <li class="list-group-item">
+                <a href="{% url 'admin_staff:category_create' %}">
+                    <button class="btn btn-success">Создать категорию</button>
+                </a>
+            </li>
+            <li class="list-group-item">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">
+                        <
+                    </a>
+                {% endif %}
+                <span class="current">
+                    страница {{ page_obj.number }} из {{ paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">
+                      >
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endblock %}

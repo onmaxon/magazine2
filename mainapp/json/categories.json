@@ -1,0 +1,23 @@
+[
+  {
+    "name": "дом",
+    "description": "товары для дома",
+    "is_active": true
+  },
+
+  {
+    "name": "офис",
+    "description": "",
+    "is_active": true
+  },
+  {
+    "name": "модерн",
+    "description": "стильно модно молодежно",
+    "is_active": true
+  },
+  {
+    "name": "классика",
+    "description": "",
+    "is_active": true
+  }
+]

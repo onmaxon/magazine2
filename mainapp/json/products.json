@@ -1,0 +1,152 @@
+[
+  {
+    "category": "дом",
+    "name": "Диван",
+    "image": "products_images/product-3-sm.jpg",
+    "short_desc": "диван как диван",
+    "description": "",
+    "price": "15000.00",
+    "quantity": 4,
+    "is_active": true
+  },
+  {
+    "category": "дом",
+    "name": "парные кресла",
+    "image": "products_images/product-2.jpg",
+    "short_desc": "почему бы и нет",
+    "description": "",
+    "price": "8000.00",
+    "quantity": 10,
+    "is_active": true
+  },
+  {
+    "category": "модерн",
+    "name": "Лампа",
+    "image": "products_images/product-11.jpg",
+    "short_desc": "похоже на модерн",
+    "description": "",
+    "price": "3000.00",
+    "quantity": 4,
+    "is_active": true
+  },
+  {
+    "category": "классика",
+    "name": "Люстра-ЛОФТ",
+    "image": "products_images/product-5-sm.jpg",
+    "short_desc": "вещи из хлама",
+    "description": "",
+    "price": "0.00",
+    "quantity": 0,
+    "is_active": true
+  },
+  {
+    "category": "дом",
+    "name": "ступа",
+    "image": "products_images/product-51.jpg",
+    "short_desc": "толочь не перетолочь",
+    "description": "",
+    "price": "350.00",
+    "quantity": 0,
+    "is_active": true
+  },
+  {
+    "category": "модерн",
+    "name": "лампа настольная",
+    "image": "products_images/product-1.jpg",
+    "short_desc": "",
+    "description": "",
+    "price": "2000.00",
+    "quantity": 5,
+    "is_active": true
+  },
+  {
+    "category": "классика",
+    "name": "светильник",
+    "image": "products_images/product-41.jpg",
+    "short_desc": "светит",
+    "description": "",
+    "price": "3000.00",
+    "quantity": 8,
+    "is_active": true
+  },
+  {
+    "category": "дом",
+    "name": "чайник",
+    "image": "products_images/product-3.jpg",
+    "short_desc": "",
+    "description": "",
+    "price": "1000.00",
+    "quantity": 20,
+    "is_active": true
+  },
+  {
+    "category": "офис",
+    "name": "стул мягенький)",
+    "image": "products_images/product-4.jpg",
+    "short_desc": "такой лучше в офис1",
+    "description": "",
+    "price": "2500.00",
+    "quantity": 10,
+    "is_active": true
+  },
+  {
+    "category": "дом",
+    "name": "Камень со стрелками",
+    "image": "products_images/product-4-sm.jpg",
+    "short_desc": "",
+    "description": "",
+    "price": "500.00",
+    "quantity": 25,
+    "is_active": true
+  },
+  {
+    "category": "модерн",
+    "name": "слоновая кость",
+    "image": "products_images/product-21.jpg",
+    "short_desc": "вот",
+    "description": "",
+    "price": "3600.00",
+    "quantity": 5,
+    "is_active": true
+  },
+  {
+    "category": "модерн",
+    "name": "Светильник",
+    "image": "products_images/product-31.jpg",
+    "short_desc": "Весьма элегантный",
+    "description": "",
+    "price": "3000.00",
+    "quantity": 20,
+    "is_active": true
+  },
+  {
+    "category": "дом",
+    "name": "Ваза",
+    "image": "products_images/product-61.jpg",
+    "short_desc": "",
+    "description": "",
+    "price": "500.00",
+    "quantity": 10,
+    "is_active": true
+  },
+  {
+    "category": "офис",
+    "name": "sdfsdfsfs",
+    "image": "",
+    "short_desc": "sdfsdfsd",
+    "description": "",
+    "price": "123.00",
+    "quantity": 10,
+    "is_active": true
+  },
+  {
+    "category": "офис",
+    "name": "123",
+    "image": "",
+    "short_desc": "123",
+    "description": "",
+    "price": "100.00",
+    "quantity": 10,
+    "is_active": true
+  }
+]

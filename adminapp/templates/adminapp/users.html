@@ -1,0 +1,100 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% load my_tags %}
+
+{% block content %}
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">автар</th>
+                        <th scope="col">login</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Персонал сайта</th>
+                        <th scope="col">Активный</th>
+                        <th scope="col">Удалить</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">автар</th>
+                        <th scope="col">login</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Персонал сайта</th>
+                        <th scope="col">Активный</th>
+                        <th scope="col">Удалить</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                {% for object in objects %}
+                    <tr>
+                        <th scope="col">
+                            <img src='{{ object.avatar|media_folder_users }}' style="height: 50px;">
+                        </th>
+                        <td>
+                            <a href="{% url 'admin_staff:user_update' object.id %}" style="color: dodgerblue">
+                                {{ object.username }}
+                            </a>
+                        </td>
+                        <td>{{ object.first_name }}</td>
+                        <td>{{ object.last_name }}</td>
+                        <td>{{ object.email }}</td>
+                        <td>
+                            {% if object.is_staff %}
+                                <i class="fa fa-check-circle"></i>
+                            {% else %}
+                                <i class="fa fa-times-circle"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if object.is_active %}
+                                <i class="fa fa-check-circle"></i>
+                            {% else %}
+                                <i class="fa fa-times-circle"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if object.is_active %}
+                                <form action="{% url 'admin_staff:user_delete' pk=object.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-danger" style="width: 130px" value="Удалить"></p>
+                                </form>
+                            {% else %}
+                                <form action="{% url 'admin_staff:user_delete' pk=object.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-primary" style="width: 130px" value="Восстановить"></p>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            <li class="list-group-item">
+                <a href="{% url 'admin_staff:user_create' %}">
+                    <button class="btn btn-success">Создать пользователя</button>
+                </a>
+            </li>
+            <li class="list-group-item">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">
+                        <
+                    </a>
+                {% endif %}
+                <span class="current">
+                    страница {{ page_obj.number }} из {{ paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">
+                      >
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endblock %}

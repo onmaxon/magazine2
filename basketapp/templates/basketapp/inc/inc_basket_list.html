@@ -1,0 +1,55 @@
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Фото</th>
+                    <th scope="col">Категория</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена за шт.</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Цена общая</th>
+                    <th scope="col">Удалить товар</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in basket_items %}
+                <tr>
+                    <th scope="col">
+                        <img src="/media/{{ item.product.image }}" style="height: 100px;" alt="{
+                        { item.product.short_desc }}">
+                    </th>
+                    <td>
+                        <span class="category_name">{{ item.product.category.name }}</span>
+                    </td>
+                    <td>
+                        <span class="product_name">{{ item.product.name }}</span>
+                    </td>
+                    <td>
+                        <span class="product_price">{{ item.product.price }}&nbspруб</span>
+                    </td>
+                    <td>
+                        <input type="number" name="{{ item.pk }}" min="0"
+                         value="{{ item.quantity }}">
+                    </td>
+                    <td>
+                        <span class="product_cost">{{ item.product_cost }}&nbspруб</span>
+                    </td>
+                    <td>
+                        <form action="{% url 'basket:remove' item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input class="btn btn-danger" type="submit" value="удалить">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if basket_items %}
+        <li class="list-group-item basket_summary">
+            В корзине {{ basket_items.0.total_quantity }} товаров общей стоимостью
+            {{ basket_items.0.total_cost }} руб
+        </li>
+        {% endif %}
+    </ul>
+</div>

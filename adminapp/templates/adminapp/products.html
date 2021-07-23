@@ -1,0 +1,82 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% load my_tags %}
+
+{% block content %}
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Картинка</th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Удалить</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th scope="col">Картинка</th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Удалить</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for object in objects %}
+                <tr>
+                    <td>
+                        <img src="{{ object.image|media_folder_products }}" style="width: 100px">
+                    </td>
+                    <td>
+                        <a href="{% url 'admin_staff:product_update' object.id %}" style="color: dodgerblue">
+                            {{ object.name }}
+                        </a>
+                    </td>
+                    <td>{{ object.short_desc }}</td>
+                    <td>{{ object.quantity }}</td>
+                    <td>{{ object.price }}</td>
+                    <td>
+                        {% if object.is_active %}
+                            <form action="{% url 'admin_staff:product_delete' pk=object.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" class="btn btn-danger" style="width: 130px" value="Удалить">
+                            </form>
+                        {% else %}
+                            <form action="{% url 'admin_staff:product_delete' pk=object.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" class="btn btn-primary" style="width: 130px" value="Восстановить"><
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+            <li class="list-group-item">
+                <a href="{% url 'admin_staff:product_create' request.resolver_match.kwargs.pk %}">
+                    <button class="btn btn-success">Создать продукт</button>
+                </a>
+            </li>
+        <li class="list-group-item">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">
+                        <
+                    </a>
+                {% endif %}
+                <span class="current">
+                    страница {{ page_obj.number }} из {{ paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">
+                      >
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endblock %}

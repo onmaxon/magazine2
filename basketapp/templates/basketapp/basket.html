@@ -1,0 +1,22 @@
+{% extends 'basketapp/base.html' %}
+{% load static %}
+
+{% block js %}
+    <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous">
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' ></script>
+    <script src="{% static 'basketapp/js/basket.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="basket_list">
+        {% include 'basketapp/inc/inc_basket_list.html' %}
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-primary">
+        на главную
+    </a>
+{% endblock %}
+

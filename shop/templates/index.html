@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}
+	<div class="slider">
+			<div class="header clearfix">
+				{% include 'inc/inc_menu.html' %}
+			</div>
+			<div class="text-slider">
+				<h3 class="green">тенденции</h3>
+				<h3 class="big"> NEKR WAS HERE</h3>
+				<p>Новый уровень комфорта. Отличные характеристики.</p>
+				<a href="#" class="button-order">заказать <img src="{% static 'img/arrow.png' %}" alt=""></a>
+			</div>
+			<div class="navi">
+				<a href="#"></a><a href="#"></a><a href="#"></a>
+			</div>
+		</div>
+{% endblock %}
+
+{% block content %}
+	<div class="featured">
+			<div class="featured-menu">
+					<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
+			</div>
+			<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+			<div class="clearfix">
+			</div>
+			<div class="tab-content">
+				<div class="block">
+					<a href="{% url 'products:product' 6 %}"><img src="{% static 'img/product-1.jpg' %}" alt="">
+						<div class="text">
+							<img src="{% static 'img/icon-hover.png' %}" alt="img">
+							<h4>Отличный стул</h4>
+							<p>Расположитесь комфортно. </p>
+						</div>
+					</a>
+				</div>
+				<div class="block">
+					<a href="{% url 'products:product' 2 %}"><img src="{% static 'img/product-2.jpg' %}" alt="">
+						<div class="text">
+							<img src="{% static 'img/icon-hover.png' %}" alt="">
+							<h4>Стул повышенного качества</h4>
+							<p>Не оторваться. </p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+
+
+		
+
+
